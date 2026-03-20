@@ -21,5 +21,11 @@ A responsive React-based expense tracker that allows users to log, categorize, a
 ## 📦 Installation
 
 ```bash
-npm install
+npm run build
 npm run dev
+npm run preview
+```
+
+## 🌍 Live Demo
+
+<https://expense-tracker-two-weld-69.vercel.app/>
