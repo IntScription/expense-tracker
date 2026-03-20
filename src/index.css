@@ -170,6 +170,22 @@ select {
   color: #b91c1c;
 }
 
+.currency-box {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.currency-box select {
+  margin-left: 10px;
+  padding: 6px;
+}
+
+.conversion-result {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
 @media (max-width: 768px) {
   .app {
     padding: 20px 12px;

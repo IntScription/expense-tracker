@@ -1,3 +1,5 @@
+import CurrencyConverter from "./CurrencyConverter";
+
 function SummaryPanel({ total, breakdown }) {
   const categories = Object.entries(breakdown);
 
@@ -26,6 +28,9 @@ function SummaryPanel({ total, breakdown }) {
           </ul>
         )}
       </div>
+
+      {/* ADD THIS */}
+      <CurrencyConverter amount={total} />
     </section>
   );
 }
