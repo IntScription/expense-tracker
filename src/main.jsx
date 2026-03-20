@@ -5,11 +5,10 @@ import "./index.css";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 
-<Analytics />
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
     <SpeedInsights />
+    <Analytics />
   </React.StrictMode>
 );
