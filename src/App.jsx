@@ -1,11 +1,18 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
 import SummaryPanel from "./components/SummaryPanel";
 import "./index.css";
 
 function App() {
-  const [expenses, setExpenses] = useState([]);
+  const [expenses, setExpenses] = useState(() => {
+    const savedExpenses = localStorage.getItem("expenses");
+    return savedExpenses ? JSON.parse(savedExpenses) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+  }, [expenses]);
 
   function handleAddExpense(expense) {
     setExpenses((prev) => [
@@ -44,11 +51,18 @@ function App() {
         <section className="layout">
           <div className="left-column">
             <ExpenseForm onAddExpense={handleAddExpense} />
-            <ExpenseList expenses={expenses} onDeleteExpense={handleDeleteExpense} />
+            <ExpenseList
+              expenses={expenses}
+              onDeleteExpense={handleDeleteExpense}
+            />
           </div>
 
           <div className="right-column">
-            <SummaryPanel total={total} breakdown={breakdown} />
+            <SummaryPanel
+              total={total}
+              breakdown={breakdown}
+              expenseCount={expenses.length}
+            />
           </div>
         </section>
       </div>

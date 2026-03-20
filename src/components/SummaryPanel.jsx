@@ -1,6 +1,6 @@
 import CurrencyConverter from "./CurrencyConverter";
 
-function SummaryPanel({ total, breakdown }) {
+function SummaryPanel({ total, breakdown, expenseCount }) {
   const categories = Object.entries(breakdown);
 
   return (
@@ -11,6 +11,10 @@ function SummaryPanel({ total, breakdown }) {
         <span>Total Spending</span>
         <strong>₹{total.toFixed(2)}</strong>
       </div>
+
+      <p className="summary-subtext">
+        {expenseCount} {expenseCount === 1 ? "expense" : "expenses"} logged
+      </p>
 
       <div className="breakdown">
         <h3>Category Breakdown</h3>
@@ -29,7 +33,6 @@ function SummaryPanel({ total, breakdown }) {
         )}
       </div>
 
-      {/* ADD THIS */}
       <CurrencyConverter amount={total} />
     </section>
   );
